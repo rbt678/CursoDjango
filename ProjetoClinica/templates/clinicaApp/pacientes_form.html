@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title_block %}Formulario Pacientes{% endblock %}
+{% block body_block %}
+<h1>Formulario Pacientes</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    <table>
+        {{form.as_table}}
+    </table>
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock %}

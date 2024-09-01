@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title_block %}Analise{% endblock %}
+{% block body_block %}
+<h1>Analise</h1>
+
+{% if dados %}
+<table border="2">
+    <thead>
+        <th>Procedimento</th>
+        <th>Resultado</th>
+        <th>Data e Hora</th>
+    </thead>
+    {% for dado in dados %}
+    <tr>
+        <td>{{dado.procedimento}}</td>
+        <td>{{dado.resultado}}</td>
+        <td>{{dado.dataHora}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p> Nenhum valor para analizar</p>
+{% endif %}
+
+<a href="/">Home</a>
+
+{% endblock %}

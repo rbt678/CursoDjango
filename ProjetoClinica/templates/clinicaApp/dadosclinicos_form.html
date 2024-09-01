@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title_block %}Formulario Dados Clinicos{% endblock %}
+{% block body_block %}
+<h1>Formulario Dados Clinicos</h1>
+
+<h2>Paciente: {{paciente.nome}}</h2>
+<table>
+    <tr><td>nome:</td><td>{{paciente.nome}}</td></tr>
+    <tr><td>sobrenome:</td><td>{{paciente.sobrenome}}</td></tr>
+    <tr><td>idade:</td><td>{{paciente.idade}}</td></tr>
+</table>
+
+<h2>Dados Clinicos</h2>
+<form method="POST">
+    {% csrf_token %}
+    <table>
+        {{form.as_table}}
+    </table>
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock %}

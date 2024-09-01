@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title_block %}Lista Pacientes{% endblock %}
+{% block body_block %}
+<h1>Lista Pacientes</h1>
+
+{% if object_list %}
+<table>
+    <thead>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Sobrenome</th>
+        <th>Idade</th>
+    </thead>
+    {% for paciente in object_list %}
+    <tr>
+        <td>{{paciente.id}}</td>
+        <td>{{paciente.nome}}</td>
+        <td>{{paciente.sobrenome}}</td>
+        <td>{{paciente.idade}}</td>
+        <td><a href="pacientes/{{paciente.id}}/update/">Alterar</a></td>
+        <td><a href="pacientes/{{paciente.id}}/delete/">Deletar</a></td>
+        <td><a href="pacientes/{{paciente.id}}/dadosclinicos/">Dados Clinicos</a></td>
+        <td><a href="pacientes/{{paciente.id}}/dadosclinicos/analise/">Analise</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p> Nenhum valor na tabela </p>
+{% endif %}
+
+<a href="pacientes/novo/">Adicionar Paciente</a>
+
+{% endblock %}
