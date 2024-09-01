@@ -1,0 +1,27 @@
+{% extends "formsDemo/base.html" %}
+{% load customTags %}
+{% block body_block %}
+        <h1>{% block title_block %}CONSULTAR{% endblock %}</h1>
+        {% if empregados %}
+        <table>
+            <thead>
+                <th>Primeiro Nome</th>
+                <th>Ultimo Nome</th>
+                <th>Salario</th>
+                <th>Email</th>
+            </thead>
+            {% for emp in empregados %}
+            <tr>
+                <td>{{emp.firstName | xab}}</td>
+                <td>{{emp.lastName | xab2:1}}</td>
+                <td>{{emp.salary | add:100000000000}}</td>
+                <td>{{emp.email}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p> Nenhum valor na tabela </p>
+        {% endif %}
+
+        <li><a href='/b'>ADICIONAR</a></li>
+{% endblock %}
